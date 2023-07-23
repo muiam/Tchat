@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}T chat{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <!-- Add these in the head section of your HTML file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+</head>
+    <div class="header">
+        <div class="header-content">
+            <a href="{% url 'index' %}">T chat</a>
+            <nav>
+                <a href="{% url 'myfeed' %}" id="myfeed">MyFeed</a>
+                <a href="{% url 'myposts' %}" id="myposts">MyPosts</a>
+                <a id="profile" href="{% url 'profile' %}">Profile</a>
+                <button id="logoutbutton" style="display: none;" onclick="logout()">Logout</button><br>
+                <a class="nav-link" href="#loginModal" data-bs-toggle="modal" data-bs-target="#loginModal" id="loginbutton">Login</a>
+                
+            </nav>
+        </div>
+    </div>
+    <script src="{% static 'js/handlers.js' %}"></script>
+
+    {% block content %}{% endblock %}
+
+

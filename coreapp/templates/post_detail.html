@@ -1,0 +1,63 @@
+{% block content %}
+{% load static %}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <!-- Add these in the head section of your HTML file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="post-detail-card card mb-4">
+            <div class="card-body">
+                <h1 class="card-title">{{title}}</h1>
+                <p class="card-text">{{body}}</p>
+            </div>
+        </div>
+    
+        <h3>Comments: {{total}}</h3>
+        
+        {% for comment in comments %}
+        <div class="comment card mb-3" id="commentstab">
+            <div class="card-body">
+                <h5 class="card-title">{{comment.name}}</h5>
+                <p class="card-text">{{comment.body}}</p>
+            </div>
+        </div>
+        {% endfor %}
+        <p class="no-comments">No comments yet.</p>
+    
+        <div id="commentFormContainer" class="comment-form card mb-3" style="display: none;">
+            <div class="card-body">
+                <h5 class="card-title">Write your comment</h5>
+                <form id="commentForm">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="commentName">Your Name</label>
+                        <input type="text" class="form-control" id="commentName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="commentBody">Your Comment</label>
+                        <textarea class="form-control" id="commentBody" rows="4" required></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="submitComment()">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <a href="{% url 'index' %}" class="back-arrow">
+            <i class="fa fa-arrow-left"></i>
+        </a>
+    
+        <!-- Plus Button to Show Comment Form -->
+        <button class="floating-compose-btn" onclick="showCommentForm()" id="commentbtn">
+            <i class="fa fa-plus"></i>
+        </button>
+
+    </div>
+    <script src="{% static 'js/handlers.js' %}"></script>
+</body>
+{% endblock content %}
+

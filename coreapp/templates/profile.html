@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}profile{% endblock %}
+{% block content %}
+{% load static %}
+
+<body>
+    <div class="profile-container">
+        <div class="profile-heading">User Profile</div>
+        {% if profile_data %}
+            <div class="profile-detail">Name: {{profile_data.name}}</div>
+            <div class="profile-detail">Email: {{profile_data.email}}</div>
+            <div class="profile-detail">Phone: {{profile_data.address.zipcode}}</div>
+            <div class="profile-detail">City: {{profile_data.address.city}}</div>
+            <div class="profile-detail">street: {{profile_data.address.street}}</div>
+            <div class="profile-detail">Phone: {{profile_data.address.zipcode}}</div>
+            <div class="profile-detail">Website: <a href="">Website</a></div>
+            
+            <!-- Add other profile details as needed -->
+        {% else %}
+            <p>No profile data found for the logged-in user.</p>
+        {% endif %}
+    </div>
+</body>
+{% endblock content %}
+</html>

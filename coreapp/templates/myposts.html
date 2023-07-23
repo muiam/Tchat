@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<body>
+<div class="container">
+    <h1 class="page-title">All my posts</h1>
+    {% for post in posts %}
+        <div class="post">
+            <h2 class="post-title">{{ post.title }}</h2>
+            <p class="post-body">{{ post.body }}</p>
+            <hr class="post-divider">
+        </div>
+    {% endfor %}
+</div>
+<div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="chatModalLabel">Type your post</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="chat-input-container">
+                    <input class="chat-input" type="text" name="chat-input" value="" placeholder="title"><br><br>
+                    <textarea placeholder="content"></textarea><br>
+                    <button class="chat-submit" type="button" name="submit" onclick="SubmitPost()">Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/handlers.js' %}"></script>
+</body>
+{% endblock %}

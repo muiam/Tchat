@@ -1,0 +1,554 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Rest of the CSS code */
+
+/* Rest of the CSS code */
+
+/* Header Styles */
+.header {
+    background-color: #1DA1F2;
+    color: white;
+    padding: 10px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Center the header content for desktops */
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.header nav {
+    display: flex;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+}
+
+.header a:hover {
+    background-color: #0D91E6;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: #1DA1F2;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a {
+    color: #1DA1F2;
+    text-decoration: none;
+    padding: 8px 12px; /* Reduce the horizontal padding between the links */
+    margin: 0 4px; /* Adjust the spacing between the links */
+}
+
+nav a:hover {
+    background-color: #1DA1F2;
+    color: white;
+}
+
+/* Floating Compose Button Styles */
+.floating-compose-btn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #1DA1F2; /* Set the background color to a nice blue color */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    display: flex; /* Add this line to fix the disappearing issue */
+    justify-content: center; /* Add this line to center the plus sign icon */
+    align-items: center; /* Add this line to center the plus sign icon */
+}
+
+.floating-compose-btn i {
+    font-size: 24px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        justify-content: space-around;
+        padding: 10px 0; /* Reduce vertical padding between the links */
+    }
+
+    nav a {
+        padding: 8px; /* Reduce padding for mobile links */
+        font-size: 16px;
+    }
+
+    .header-content {
+        justify-content: center; /* Center the header content for mobile */
+    }
+
+    .floating-compose-btn {
+        bottom: 80px; /* Adjust the position to avoid overlapping the navigation */
+    }
+}
+
+
+/* Post Card Styles */
+.feed-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 20px; /* Add some spacing between post cards */
+}
+
+.post-card h3 {
+    margin-top: 0;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.post-card p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.post-card a {
+    color: #1DA1F2;
+    text-decoration: none;
+}
+
+.post-card a:hover {
+    text-decoration: underline;
+}
+/* Add styles for post actions */
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+/* Add styles for action buttons */
+.action-button {
+    background-color: transparent;
+    border: none;
+    color: #1DA1F2;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Customize the like and message icons */
+.action-button i {
+    font-size: 20px;
+}
+
+/* Add some spacing between the icons */
+.like-button {
+    margin-right: 10px;
+}
+
+/* Author Info Styles */
+.author-info {
+    display: flex;
+    align-items: center;
+}
+
+.author-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.author-info h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.author-info p {
+    margin: 0;
+    color: #999;
+    font-size: 14px;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 90%;
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        justify-content: space-around;
+        padding: 10px 0; /* Reduce vertical padding between the links */
+    }
+
+    nav a {
+        padding: 8px; /* Reduce padding for mobile links */
+        font-size: 16px;
+    }
+
+    .container {
+        padding-bottom: 60px; /* To add space for the bottom navigation */
+    }
+
+    .floating-compose-btn {
+        bottom: 80px; /* Adjust the position to avoid overlapping the navigation */
+    }
+
+    /* CSS for the posting form container */
+    #postingForm {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+    }
+
+    .post-card {
+        width: 100%; /* Make the post card fill the entire width of the mobile screen */
+    }
+
+    /* Center the header content for mobile */
+    .header-content {
+        justify-content: center;
+    }
+
+}
+@media (min-width: 769px) {
+    .feed-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .post-card {
+        /* Make the post card fill one-third of the container width (3 cards per row) */
+        flex-basis: calc(33.33% - 20px);
+        max-width: calc(33.33% - 20px);
+        box-sizing: border-box;
+    }
+}
+.chat-input-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.chat-input {
+    border-radius: 25px;
+    padding: 12px 15px;
+}
+
+.chat-submit {
+    border-radius: 25px;
+    padding: 12px 20px;
+}
+
+.post-detail-card {
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.comment {
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+h1.card-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-text {
+    margin-top: 10px;
+    color: #555;
+}
+
+.card-title {
+    color: #333;
+}
+
+p.no-comments {
+    font-size: 16px;
+    color: #999;
+    font-style: italic;
+    margin-top: 30px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.comment-form {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.comment-form h5 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.comment-form .form-group {
+    margin-bottom: 20px;
+}
+
+.comment-form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.comment-form .form-control {
+    border: 1px solid #ddd;
+}
+
+.comment-form .btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.comment-form .btn-primary:hover {
+    background-color: #0056b3;
+}
+#loginModal .modal-dialog {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#loginModal .modal-content {
+    border-radius: 25px;
+}
+
+#loginModal .modal-content form {
+    padding: 20px;
+}
+
+#loginModal input[type="text"],
+#loginModal input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+#loginModal button[type="submit"] {
+    background-color: #128c7e;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+@media (max-width: 576px) {
+    /* Styles for smaller screens (e.g., mobile devices) */
+    .chat-input-form {
+        max-width: 100%;
+        padding: 10px;
+    }
+}
+  
+  @media screen and (max-width: 480px) {
+    .chat-box p {
+      font-size: 30px;
+    }
+    .chat-input {
+      width: 60%;
+      float: left;
+      font-size: 28px;
+    }
+    .chat-submit {
+      float: right;
+    }
+  }
+
+
+  .back-arrow {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: #1DA1F2;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+/* Increase the size of the backward arrow icon */
+.back-arrow i {
+    font-size: 32px;
+    margin-right: 10px;
+}
+
+/* Add hover effect to the backward arrow */
+.back-arrow:hover {
+    color: #007bff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Customize the appearance of the backward arrow for mobile */
+@media (max-width: 576px) {
+    .back-arrow {
+        top: 10px;
+        left: 10px;
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .back-arrow i {
+        font-size: 24px;
+    }
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.post {
+    margin-bottom: 20px;
+}
+
+.post-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.post-body {
+    font-size: 16px;
+}
+
+.post-author {
+    font-size: 14px;
+    color: #888;
+    margin-top: 5px;
+}
+
+.post-divider {
+    border: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+
+.profile-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.profile-detail {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    color: #888;
+}
